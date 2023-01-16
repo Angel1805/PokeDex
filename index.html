@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/CSS/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>PokéDex</title>
+</head>
+<body>
+    <nav>
+        <h1>PokéDex</h1>
+    </nav>
+    <main class="container">
+        <section class="section1-search">
+            <div class ="banner-green">
+                <h3> Busca un Pokémon por su nombre.</h3>
+            </div>
+            <div class="input-group d-flex justify-content-center align-items-center flex-column"  id="div-inputSearch">
+                <div class="divInputButton">
+                    <input type="text" class="form-control text-dark" id="inputSearchCards"aria-label="search pokemon" aria-describedby="button-addon2"  autocomplete="off">
+                    <button  class="btn btn-outline-secondary" type="button" id="buttonSearchPokemon">
+                        <img src="./assets/icons/buscar.png" alt="search" class="button-search">
+                    </button>
+                </div>
+                <div class="divList">
+                    <ul class="list"></ul>
+                </div>
+            </div>
+        </section>
+        <section class="sectionLoader">
+        </section>
+        <section class="searchPokemonResult">
+        </section>
+        <section class="section2Cards">
+        </section>
+        <section class="section3PreviousNext">
+            <div class="btnsPreviousNext">
+                <!-- <button class="btnPrevious styleBtn btns"><img src="./assets/icons/previous.png" class ="imgs" alt=""> Previous</button>
+                <button class="btnNext styleBtn btns">Next <img src="./assets/icons/next.png" class ="imgs"alt=""></button>
+            </div> -->
+        </section>
+
+    </main>
+    <script src="./assets/JS/app2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

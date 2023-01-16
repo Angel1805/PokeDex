@@ -1,0 +1,302 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: "Pokemon Hollow";
+    src: url(/assets/fonts/Pokemon\ Hollow.ttf);
+}
+@font-face {
+    font-family: "Pokemon Solid";
+    src: url(/assets/fonts/Pokemon\ Solid.ttf);
+}
+@font-face {
+    font-family: "Flexo-Demi";
+    src: url(/assets/fonts/Flexo-Demi.ttf);
+}
+body{
+    background-image: url(/assets/img/Fondo.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    max-width: 100%;
+    /* max-height: 100%; */
+}
+
+nav h1 {
+    font-family: "Pokemon Solid";
+    font-size: 45px;
+    color: #ffcc03;
+    -webkit-text-stroke: 2px blue;
+    margin:0;
+    text-align: center;
+}
+.section1-search{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 20px;
+
+}
+#div-inputSearch{
+    width: 45%;
+    /* border: 0.1rem solid; */
+}
+.divInputButton{
+    width: 100%;
+    display:flex;
+}
+.divList{
+    width: 100%;
+    display:flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: absolute;
+    z-index: 2;
+    top: 2.5rem;
+}
+#inputSearchCards{
+    border: 0.1rem solid;
+}
+ul{
+    list-style: none;
+}
+.list{
+    width: 100%;
+    background-color: #ffff;
+    border-radius: 0 0 5px 5px;
+    padding: 0%;
+}
+.list-items{
+    padding: 8px 3px;
+}
+.list-items:hover{
+    background-color: #dddd;
+}
+#buttonSearchPokemon{
+   padding: 0;
+   width: 50px;
+   height: 38px;
+   background-color: #da471b;
+   border: 0.1rem solid black;
+}
+#buttonSearchPokemon:hover{
+    transform: scale(1.07);
+}
+.banner-green{
+    background-color:  #2f6c62;
+    width: 50%;
+    height: 50px;
+    border: 0.1rem solid;
+    border-radius: 15px;
+}
+.banner-green h3{
+    color: white;
+    font-family: "Pokemon Hollow";
+    text-align: center;
+}
+.section2Cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+
+    width: 95%;
+    margin: 10px auto 60px auto;
+}
+.searchPokemonResult{
+    width: 30%;
+}
+.divCardPokemon{
+    border-radius: 1rem;
+    box-shadow: 0 1rem 1rem rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    overflow: hidden;
+    backdrop-filter: blur(0.05rem);
+    background-color: rgba(255,255,255,0.060);
+    border: .1rem solid rgba(255,255,255,0.18);
+}
+.divCardPokemon:hover{
+    transform: scale(1.05);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+.divImgPokemon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.divIdPokemon{
+    height: 6%;
+}
+.divIdPokemon p{
+    font-weight: 600;
+}
+.imgCardPokemon{
+    width: 95%;
+}
+:root{
+    --font-white:white;
+    --font-black:black;
+
+    --type-steel:#60A2B9;
+    --type-water:#2481F0;
+    --type-bug:#92A212;
+    --type-dragon:#4F60E2;
+    --type-electric:#FAC100;
+    --type-ghost:#713F71;
+    --type-fire:#E72324;
+    --type-fairy:#EF71F0;
+    --type-ice:#3DD9FF;
+    --type-fighting:#FF8100;
+    --type-normal: #A0A2A0;
+    --type-grass:#3DA224;
+    --type-psychic:#EF3F7A;
+    --type-rock:#B0AB82;
+    --type-dark:#4F3F3D;
+    --type-ground:#92501B;
+    --type-poison:#923FCC;
+    --type-flying:#82BAF0;
+}
+.divTypePokemon{
+    width: 100%;
+    display: flex;
+    gap: .5rem;
+    font-size: 17px;
+    font-weight: 700;
+    /* flex-wrap: wrap; */
+    flex-direction: row;
+    justify-content: center;
+}
+.type{
+    width: 45%;
+    height: 70%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "Flexo-Demi";
+}
+.steel{
+    background-color: var(--type-steel);
+    color: var(--font-black);
+}
+.water{
+    background-color: var(--type-water);
+    color: var(--font-black);
+}
+.bug{
+    background-color: var(--type-bug);
+    color: var(--font-black);
+}
+.dragon{
+    background-color: var(--type-dragon);
+    color: var(--font-white);
+}
+.electric{
+    background-color: var(--type-electric);
+    color: var(--font-black);
+}
+.ghost{
+    background-color: var(--type-ghost);
+    color: var(--font-white);
+}
+.fire{
+    background-color: var(--type-fire);
+    color: var(--font-black);
+}
+.fairy{
+    background-color: var(--type-fairy);
+    color: var(--font-black);
+}
+.ice{
+    background-color: var(--type-ice);
+    color: var(--font-black);
+}
+.fighting{
+    background-color: var(--type-fighting);
+    color: var(--font-black);
+}
+.normal{
+    background-color: var(--type-normal);
+    color: var(--font-black);
+}
+.grass{
+    background-color: var(--type-grass);
+    color: var(--font-black);
+}
+.psychic{
+    background-color: var(--type-psychic);
+    color: var(--font-black);
+}
+.rock{
+    background-color: var(--type-rock);
+    color: var(--font-black);
+}
+.dark{
+    background-color: var(--type-dark);
+    color: var(--font-white);
+}
+.ground{
+    background-color: var(--type-ground);
+    color: var(--font-white);
+}
+.poison{
+    background-color: var(--type-poison);
+    color: var(--font-white);
+}
+.flying{
+    background-color: var(--type-flying);
+    color: var(--font-black);
+}
+.divNamePokemon{
+    font-family: "flexo-Demi";
+    font-style: bold;
+}
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: #FF3D00;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    display: block;
+    margin:auto;
+}
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.section3PreviousNext{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+}
+.btnsPreviousNext{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20rem;
+    height: 100%;
+}
+.styleBtn{
+    background-color: #30a7d7;
+    color: var(--font-white);
+    width: 15%;
+    border-radius: 15px;
+    font-family: "Flexo-Demi";
+    font-weight: 500;
+    font-size: 25px;
+}
