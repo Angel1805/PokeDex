@@ -19,7 +19,6 @@ const searchPokemon = async (e) =>{
         const data = await response.json();
         console.log(response);
         console.log(data);
-        // createCardPokemons(data)
         createCardPokemons2 (data);
 
         if(!response.ok)throw{status:response.status, statusText:response.statusText}
@@ -29,7 +28,6 @@ const searchPokemon = async (e) =>{
         let message = error.statusText || "This pokemon is not available. Try with another pokemon"
         containerPokemons.innerHTML = `<p>Error: ${error.status}: ${message} </p>`
     }
-
 }
 
 // Agregar boton de volver a el inicio de todos los pokemones reinicia el programa 
@@ -42,17 +40,18 @@ buttonSearchPokemon.addEventListener('click', () =>{
     btnsPreviousNext.innerHTML = '';
     searchPokemon()
     searchPokemonResult.innerHTML = '';
+    inputSearchCards.value = '';
     console.log('di cliclk en buscar');
 });
 
 const filterNames = async()=>{
 
-    
     try {
         let namesPokeData = [];
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1279`);
 
         const data = await response.json();
+        console.log(data);
 
         for(let i = 0; i < data.results.length; i++){
             let namesPoke = data.results[i].name;
@@ -64,6 +63,7 @@ const filterNames = async()=>{
         
         inputSearchCards.addEventListener("keyup", (e) =>{
             removeElements();
+            
             for (let i of sortedNamesPoke){
                 if(i.toLowerCase().startsWith(inputSearchCards.value.toLowerCase()) && inputSearchCards.value != ""){
 
@@ -79,19 +79,6 @@ const filterNames = async()=>{
                 }
             }
         });
-
-        
-
-
-
-        
-
-
-
-
-
-
-
 
         if(!response.ok)throw{status:response.status, statusText:response.statusText}
         
@@ -117,27 +104,21 @@ const removeElements = () =>{
 }
 const loadPokemons = async (url) =>{
     containerPokemons.innerHTML = `<span class="loader"></span>`;
-
     try {
-        // containerPokemons.innerHTML = `<span class="loader"></span>`;
-
         const response = await fetch(url);
         const json = await response.json();
         console.log(json);
 
-
-        // prevLink = json.previous ? `<button class=" btns btnPrevious styleBtn" data-url=${json.previous}><img src="./assets/icons/previous.png" alt=""> Previous</button>`: '';
-
-        // nextLink = json.next ? `<button class=" btns btnNext styleBtn" data-url=${json.next}>Next <img src="./assets/icons/next.png" alt=""></button> `: "";
         let prevLink;
         if (json.previous){
-            prevLink = `<button class=" btns btnPrevious styleBtn" data-url=${json.previous}><img src="./assets/icons/previous.png" alt=""> Previous</button>`;
+            prevLink = `<button class=" btns btnPrevious styleBtn" data-url=${json.previous}>
+            <img src="./assets/icons/previous.png" alt="" type="button"> Previous</button>`;
         }else{
             prevLink = "";
         }
         let nextLink;
         if (json.next){
-            nextLink = `<button class=" btns btnNext styleBtn" data-url=${json.next}>Next <img src="./assets/icons/next.png" alt=""></button> `;
+            nextLink = `<button class=" btns btnNext styleBtn" data-url=${json.next}>Next <img src="./assets/icons/next.png" alt="" type="button"></button> `;
         }else{
             nextLink = "";
         }
@@ -222,11 +203,20 @@ const createCardPokemons = async(pokemon) =>{
 
     let pokemonId = pokemon.id.toString();
     if (pokemonId.length === 1){
-        pokemonId = "00" + pokemonId
-    }else if (pokemonId.length === 2){
+        pokemonId = "000" + pokemonId
+    }if (pokemonId.length === 2){
+        pokemonId = "00" + pokemonId;
+    }if(pokemonId.length === 3){
         pokemonId = "0" + pokemonId;
     };
 
+    createCardPokemon(pokemon,pokemonId, typesNames)
+
+
+};
+const createCardPokemon = (pokemon, pokemonId, typesNames) =>{
+
+    //TODO:arreglar el Html de esta tarjeta agregando otro div padre 
     const divCardPokemon = document.createElement("div");
     divCardPokemon.classList.add("divCardPokemon");
 
@@ -243,7 +233,18 @@ const createCardPokemons = async(pokemon) =>{
     ${typesNames}
     </div>`
     containerPokemons.append(divCardPokemon);
-};
+
+    const divCardPokemonAll = document.querySelectorAll("section.section2Cards > div.divCardPokemon");
+    console.log(divCardPokemonAll);
+    divCardPokemonAll.forEach((card) => {
+        card.addEventListener("click", () =>{
+            const child = card.children[2];
+            const cardName = child.innerText;
+            console.log('di click en un hijo '+ cardName);
+        });
+    });
+
+}
 const createCardPokemons2 = async(pokemon) =>{
 
 
@@ -292,4 +293,15 @@ const firstLetterUppercase = (name) =>{
     })
     .join(' ');
 };
+
+// const divCardPokemonAll = document.querySelector(".divCardPokemon");
+// console.log(divCardPokemonAll);
+// // divCardPokemon2.forEach((card) => {
+// //     console.log(card);
+// //     cardChildren.addEventListener("click", () =>{
+// //         console.log('di click en un hijo');
+// //     });
+// // });
+
+
 

@@ -44,6 +44,9 @@ nav h1 {
     width: 45%;
     /* border: 0.1rem solid; */
 }
+form{
+    width: 100%;
+}
 .divInputButton{
     width: 100%;
     display:flex;
@@ -290,6 +293,12 @@ ul{
     justify-content: center;
     gap: 20rem;
     height: 100%;
+}
+.btnPrevious img{
+    pointer-events: none;
+}
+.btnNext img{
+    pointer-events: none;
 }
 .styleBtn{
     background-color: #30a7d7;
