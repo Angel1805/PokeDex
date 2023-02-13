@@ -140,24 +140,7 @@ const loadPokemons = async (url) =>{
     
 };
 loadPokemons(linkAPI);
-// poner la opcion de click en la imagen
-// btnsPreviousNext.forEach((btn) => {
-//     console.log(btn);
 
-//     btn.addEventListener('click',(e) => {
-//         console.log('di click en un boton');
-//         e.preventDefault();
-//         console.log(e.target.classList.contains('btns'));
-//         if (e.target.classList.contains('btns')){
-
-//             let value = e.target.dataset.url
-//             console.log(value);
-//             loadPokemons(value);
-        
-//         }
-//     })
-
-// });
 btnsPreviousNext.addEventListener('click',(e) => {
     e.preventDefault();
     // console.log(e.target.classList.contains('btns'));
@@ -168,7 +151,6 @@ btnsPreviousNext.addEventListener('click',(e) => {
 
     }
 })
-
 
 const createPokemons = async (json)=>{
     containerPokemons.innerHTML = '';
@@ -235,11 +217,11 @@ const createCardPokemon = (pokemon, pokemonId, typesNames) =>{
     containerPokemons.append(divCardPokemon);
 
     const divCardPokemonAll = document.querySelectorAll("section.section2Cards > div.divCardPokemon");
-    console.log(divCardPokemonAll);
     divCardPokemonAll.forEach((card) => {
         card.addEventListener("click", () =>{
             const child = card.children[2];
-            const cardName = child.innerText;
+            const cardName = child.innerText.toLowerCase();
+            createModalPokemon(cardName)
             console.log('di click en un hijo '+ cardName);
         });
     });
@@ -293,6 +275,24 @@ const firstLetterUppercase = (name) =>{
     })
     .join(' ');
 };
+
+const createModalPokemon = async(namePokemon) =>{
+
+    try {
+        const response = await fetch(`${linkAPI}${namePokemon}`);
+        const json = await response.json();
+        console.log(json);
+
+
+    } catch (error) {
+        console.log(error);
+        let message = error.statusText || "Ocurrió un error"
+        containerPokemons.innerHTML = `<p>Error: ${error.status}: ${message} </p>`
+    }
+
+
+
+}
 
 // const divCardPokemonAll = document.querySelector(".divCardPokemon");
 // console.log(divCardPokemonAll);
