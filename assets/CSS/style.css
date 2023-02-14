@@ -309,7 +309,7 @@ ul{
     font-weight: 500;
     font-size: 25px;
 }
-.modal-container{
+.modal_container{
     position: fixed;
     z-index: 100;
     width: 100%;
@@ -348,13 +348,10 @@ ul{
     border: none;
     cursor: pointer;
 } 
-
 .div_img_modal{
     display: flex;
     justify-content: center;
     align-items: center;
-
-
 }
 .div_img_modal img {
     width: 30%;
@@ -363,5 +360,66 @@ ul{
     font-family: "Flexo-Demi";
     text-align: center;
     font-size: 30px;
+    margin: 0;
 }
+.divTypePokemonModal{
+    display: flex;
+}
+.typeModal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+.divHpXd{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 10%;
+}
+.divWeightHeight{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.divWeight{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.divWeight p{
+    margin: 0;
+}
+.divHeight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.divHeight p{
+    margin: 0;
+}
+.pBold{
+    font-weight: bold;
+}
+.divAbility{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 
+}
+.divAb p{
+    margin: 0;
+}
+.divAb ul{
+    padding: 0;
+}
+.hr{
+    margin: 0;
+}
+.divAbilityC{
+    font-weight: bold;
+}

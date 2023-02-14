@@ -289,19 +289,16 @@ const createModalPokemon = async(namePokemon) =>{
         let message = error.statusText || "Ocurrió un error"
         containerPokemons.innerHTML = `<p>Error: ${error.status}: ${message} </p>`
     }
-
-
-
 }
+const closeModal = document.getElementById('closeModal');
+console.log(closeModal);
+const modal_container = document.querySelector('.modal_container');
+console.log(modal_container);
+const modalPokemon = document.querySelector('modalPokemon')
+const divCloseModal = document.querySelector('divCloseModal');
 
-// const divCardPokemonAll = document.querySelector(".divCardPokemon");
-// console.log(divCardPokemonAll);
-// // divCardPokemon2.forEach((card) => {
-// //     console.log(card);
-// //     cardChildren.addEventListener("click", () =>{
-// //         console.log('di click en un hijo');
-// //     });
-// // });
-
+closeModal.addEventListener("click", () =>{
+    modalPokemon.classList.toggle('modalPokemon')
+})
 
 
